@@ -1,0 +1,24 @@
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    position:relative;
+    height: 50px;
+}
+header {
+    padding: 10px 20px;
+}
+header,nav{
+    background-color: #fbffce !important;
+}
+.logo img {
+    width:180px;position:absolute;top:0;left:0;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
