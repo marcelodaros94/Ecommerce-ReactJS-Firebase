@@ -1,0 +1,13 @@
+main{
+    width: 910px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.item-count__buttons {
+    display: flex;
+}
+.item-info {
+    margin-bottom: 50px;
+    border: 1px dashed black;
+    padding: 0 20px;
+}
