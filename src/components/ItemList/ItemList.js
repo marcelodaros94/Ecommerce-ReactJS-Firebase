@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './ItemList.css'
 import Item from '../Item/Item'
 import CircularProgress from '@mui/material/CircularProgress';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 export default function ItemList(){  
     const [loader, setLoader] = useState(true)
     const [products, setProducts] = useState([])
