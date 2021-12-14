@@ -1,5 +1,6 @@
 import React from 'react'
 import './NavBar.css'
+import {Link} from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 import logo from '../../logo.png'
 import AppBar from '@mui/material/AppBar';
@@ -12,8 +13,8 @@ export default function NavBar(){
                     <img src={logo} alt="madrina"></img>
                 </div>
                 <ul>
-                    <li><Button variant="outlined" color="secondary">Inicio</Button></li>
-                    <li><Button variant="outlined">Tienda</Button></li>
+                    <li><Link to={`/`}>Inicio</Link></li>
+                    <li><Link to={`/detail`}>Tienda</Link></li>
                 </ul>
                 <CartWidget/>
             </nav>
