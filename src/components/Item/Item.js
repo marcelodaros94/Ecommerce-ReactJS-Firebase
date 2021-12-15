@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 export default function Item({ data }){
+
     const [itemCount, setItemCout] = useState(0)
 
     const updateItem = () => {
@@ -21,7 +22,8 @@ export default function Item({ data }){
                     <h2>{data.name}</h2>
                     <div className="item-count">
                         <div className="item-count__info">
-                            <span>Cantidad: </span>
+                            <span>Cantidad: </span>                
+                            
                         </div>
                         <div className="item-count__buttons">
                             <Button onClick={removeItem}>-</Button>
