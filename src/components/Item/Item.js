@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './Item.css'
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+
 export default function Item({ data }){
     const [itemCount, setItemCout] = useState(0)
 
@@ -27,7 +29,8 @@ export default function Item({ data }){
                             <Button onClick={updateItem} >+</Button>
                         </div>
                     </div>
-                    <Button>Agregar al carrito</Button>
+                    <Button>Agregar al carrito</Button>                    
+                    <Button component={Link} to={`/detail/${data.id}`}>Detalle</Button>
 
                 </div>
         </div>

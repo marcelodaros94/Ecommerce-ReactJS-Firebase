@@ -10,11 +10,13 @@ export default function NavBar(){
         <AppBar position="static">
             <nav>
                 <div class="logo">
-                    <img src={logo} alt="madrina"></img>
+                    <Link to={`/`}>
+                        <img src={logo} alt="madrina"></img>
+                    </Link>
                 </div>
                 <ul>
                     <li><Link to={`/`}>Inicio</Link></li>
-                    <li><Link to={`/detail`}>Tienda</Link></li>
+                    <li><Link to={`/category/1`}>Boxes</Link></li>
                 </ul>
                 <CartWidget/>
             </nav>

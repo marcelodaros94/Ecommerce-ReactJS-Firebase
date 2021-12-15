@@ -1,5 +1,6 @@
+
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer'
-export default function Home(){
+export default function Category(){
     return (
         <ItemListContainer />
     )
