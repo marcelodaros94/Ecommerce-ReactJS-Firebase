@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './ItemList.css'
 import Item from '../Item/Item'
 import CircularProgress from '@mui/material/CircularProgress';
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { useParams } from 'react-router-dom'
 
 export default function ItemList(){  
