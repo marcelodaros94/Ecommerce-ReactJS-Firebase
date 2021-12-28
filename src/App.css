@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+header.theme-dark, header.theme-dark nav
+{
+  background:#3b2207 !important;
+}
+header.theme-dark *{
+  color:white !important;
+}
