@@ -44,3 +44,23 @@ header.theme-dark, header.theme-dark nav
 header.theme-dark *{
   color:white !important;
 }
+
+
+
+.box-cart.active {
+  position: fixed;
+  top: 90px;
+  display: block;
+  background: #371d02;
+  right: 10px;
+  padding: 20px 50px;
+  max-height: 65vh;
+  overflow-y: auto;
+}
+.box-cart {
+  display: none;
+} 
+.item-cart-list:not(:last-child) {
+  padding-bottom: 20px;
+  border-bottom: 1px dashed white;
+}

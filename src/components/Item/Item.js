@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import CartContext from '../../context/CartContext';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
@@ -15,8 +16,26 @@ export default function Item({ data }){
         itemCount > 0 && setItemCout(itemCount - 1)
     }
 */
+    const { addProducts , products} = useContext(CartContext)
+    const [itemCart, setItemCart] = useState(
+        {
+            id: data.id,
+            name: data.name,
+            price: data.price,
+            quantity:0
+        }
+    )
+    const sendItem=()=>{
+        console.log("itemCart: ",itemCart)
+        addProducts(itemCart)
+        console.log("Productos agregados: ", products)
+    }
     const onAdd = (value) => {
         console.log("items agregados: ", value)
+        itemCart.id=data.id
+        itemCart.name=data.name
+        itemCart.price=data.price
+        itemCart.quantity=value
     }
     return (
         <div className="card-item-product">
@@ -30,7 +49,7 @@ export default function Item({ data }){
                         </div>
                         <ItemCount stock={data.stock} onAdd={onAdd}/>
                     </div>
-                    <Button>Agregar al carrito</Button>                    
+                    <Button onClick={sendItem}>Agregar al carrito</Button>                    
                     <Button component={Link} to={`/detail/${data.id}`}>Detalle</Button>
 
                 </div>

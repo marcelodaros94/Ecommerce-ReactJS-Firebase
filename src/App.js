@@ -1,13 +1,13 @@
 import './App.css';
 import AppRouter from './components/AppRouter/AppRouter'
-import { ThemeProvider } from "./context/ThemeContext"
+import { CartProvider } from './context/CartContext.js';
 
 function App() {
   return (
     <div className='App'>
-      <ThemeProvider>
+      <CartProvider>
         <AppRouter />
-      </ThemeProvider>
+      </CartProvider>
     </div>
   );
 }

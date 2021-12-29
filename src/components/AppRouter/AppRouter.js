@@ -7,18 +7,21 @@ import Category from '../../pages/Category/Category'
 import NotFound from '../../pages/NotFound/NotFound'
 import CartPage from '../../pages/CartPage/CartPage'
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from "../../context/ThemeContext";
 
 export default function AppRouter(){
     return (
     <BrowserRouter>
-    <NavBar/>
-    <Routes>
-      <Route exact path="/" element={<Home/>} />
-      <Route path="/detail/:id" element={<Detail/>} />
-      <Route path="/category/:cat" element={<Category/>} />
-      <Route path="/cart" element={<CartPage/>} />
-      <Route path="*" element={<NotFound/>} />
-    </Routes>
-  </BrowserRouter>
+      <ThemeProvider>
+        <NavBar/>
+        <Routes>
+          <Route exact path="/" element={<Home/>} />
+          <Route path="/detail/:id" element={<Detail/>} />
+          <Route path="/category/:cat" element={<Category/>} />
+          <Route path="/cart" element={<CartPage/>} />
+          <Route path="*" element={<NotFound/>} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
