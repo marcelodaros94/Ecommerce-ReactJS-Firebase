@@ -64,3 +64,10 @@ header.theme-dark *{
   padding-bottom: 20px;
   border-bottom: 1px dashed white;
 }
+header{
+  position:fixed !important;
+  top:0;
+}
+body{
+  padding-top:150px;
+}
