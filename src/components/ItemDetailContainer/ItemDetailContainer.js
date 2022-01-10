@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+//firebase
+import db from '../../firebase'
+import { collection, getDocs } from 'firebase/firestore/lite'
+
 
 export default function ItemDetailContainer(){
     const [product, setProduct] = useState([])
     const { id }=useParams()
-
+/*
     const dataProduct=[
         {
             id: 1,
@@ -27,11 +31,25 @@ export default function ItemDetailContainer(){
         setTimeout(() => {
             resolve(dataProduct)
         }, 2000)
-    })
+    })*/
+    
+    async function getProducts(db){        
+        const productosCol = collection(db, 'productos');
+        const productoSnapshot = await getDocs(productosCol);
+        const productoList = productoSnapshot.docs.map(doc => {
+           let producto=doc.data();
+           producto.id=doc.id;
+           return producto;
+        });
+        console.log(productoList)
+        return productoList;
+    }
+
+
     useEffect(() => {
-        getProduct.then(prod => {
+        getProducts(db).then(prod => {
             prod.filter(resultProd=>{
-                if(resultProd.id==parseInt(id))
+                if(resultProd.id==id)
                     setProduct(resultProd)
             })
         })

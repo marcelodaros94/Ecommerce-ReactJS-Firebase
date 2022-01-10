@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import './ItemList.css'
 import Item from '../Item/Item'
-import CircularProgress from '@mui/material/CircularProgress';
 import { useParams } from 'react-router-dom'
+//material ui
+import CircularProgress from '@mui/material/CircularProgress';
+//firebase
+import db from '../../firebase'
+import { collection, getDocs } from 'firebase/firestore/lite'
 
 export default function ItemList(){  
     const [loader, setLoader] = useState(true)
     const [products, setProducts] = useState([])
     const { cat }=useParams()
-
+/*
     const dataProducts=[
         {
             id: 1,
@@ -29,7 +33,20 @@ export default function ItemList(){
         setTimeout(() => {
             resolve(dataProducts)
         }, 2000)
-    })
+    })*/
+
+    async function getProducts(db){        
+        const productosCol = collection(db, 'productos');
+        const productoSnapshot = await getDocs(productosCol);
+        const productoList = productoSnapshot.docs.map(doc => {
+           let producto=doc.data();
+           producto.id=doc.id;
+           return producto;
+        });
+        console.log(productoList)
+        return productoList;
+    }
+
     useEffect(() => { /*
         getProducts.then((data) => {
             console.log("respuesta de promesa:", data)
@@ -38,7 +55,7 @@ export default function ItemList(){
             setLoader(false)
         })*/
         const tmpProd = []
-        getProducts.then(prod => {
+        getProducts(db).then(prod => {
             prod.filter(resultProd=>{
                 console.log(resultProd)
                 if(resultProd.category==parseInt(cat) || cat==null){
