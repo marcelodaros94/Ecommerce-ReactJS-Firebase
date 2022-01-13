@@ -71,3 +71,14 @@ header{
 body{
   padding-top:150px;
 }
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  padding: 20px 35px;
+}.form-container > div {
+  margin-bottom: 15px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}

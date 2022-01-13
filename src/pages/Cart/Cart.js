@@ -1,15 +1,26 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { Button } from '@mui/material';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 
+import ContactModal from '../../components/ContactModal/ContactModal'
+
 export default function Cart(){
     const { products, totalPrice, onRemove } = useContext(CartContext)
-    console.log(products);
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     return (
+        <>
         <Container className='container-cart-page'>
             {products.length>0 ?
                 <>
@@ -49,7 +60,7 @@ export default function Cart(){
                             </div>
                         </Grid>
                     </Grid>
-                    <Button variant='contained'>Terminar mi compra</Button>
+                    <Button variant='contained' onClick={handleClickOpen}>Terminar mi compra</Button>
                 </>
             :
                 <>
@@ -57,6 +68,13 @@ export default function Cart(){
                     <Link to='/'><Button variant='contained'>Regresar</Button></Link>
                 </>
             }
-        </Container>
+        </Container>        
+        <ContactModal 
+                open={open} 
+                handleClose={handleClose} 
+                products={products} 
+                total={totalPrice}
+            />
+        </>
     )
 }

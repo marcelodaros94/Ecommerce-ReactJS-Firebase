@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import CircularProgress from '@mui/material/CircularProgress';
 //firebase
 import db from '../../firebase'
-import { collection, getDocs } from 'firebase/firestore/lite'
+import { collection, getDocs } from 'firebase/firestore'
 
 export default function ItemList(){  
     const [loader, setLoader] = useState(true)
