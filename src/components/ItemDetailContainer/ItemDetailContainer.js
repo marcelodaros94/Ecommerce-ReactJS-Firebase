@@ -56,7 +56,7 @@ export default function ItemDetailContainer(){
     }, [])
 
     return(
-        <div>ItemDetailContainer
+        <div>
         <ItemDetail data={product}/>
         </div>
     )

@@ -82,3 +82,8 @@ body{
   flex-direction: column;
   width: 500px;
 }
+
+.item-image img {
+  width: 320px;
+  max-width: 95%;
+}

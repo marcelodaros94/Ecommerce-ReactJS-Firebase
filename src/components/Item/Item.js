@@ -42,6 +42,9 @@ export default function Item({ data }){
                 <span className="stock-text">Stock : {data.stock}</span>
                 <div className="item-info">
                     <h2>{data.name}</h2>
+                    <div className="item-image">
+                        <img src={`/assets/${data.img}`} alt="product image" />
+                    </div>
                     <div className="item-count">
                         <div className="item-count__info">
                             <span>Cantidad: </span>                

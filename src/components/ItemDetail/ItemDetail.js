@@ -12,6 +12,7 @@ export default function ItemDetail({data}){
             id: data.id,
             name: data.name,
             price: data.price,
+            image: data.img,
             quantity:0
         }
     )
@@ -36,6 +37,9 @@ export default function ItemDetail({data}){
                 <p>Nombre: {data.name}</p>
                 <p>Precio: {data.price}</p>
                 <p>Stock: {data.stock}</p>
+                <div class="item-image">
+                    <img src={`/assets/${data.img}`} />
+                </div>
                 <ItemCount stock={data.stock} onAdd={onAdd}/>
                 <Button variante="contained" onClick={sendItem}>
                        Comprar
