@@ -87,3 +87,17 @@ body{
   width: 320px;
   max-width: 95%;
 }
+
+@media screen and (max-width:768px){
+  body {
+    padding-top: 200px;
+  }
+  .css-yd3g0n-MuiGrid-root {
+      max-width: 100% !important;
+  }
+  .logo img {
+      width: 75px !important;
+  }.form-container{
+    width:auto !important;
+  }
+}
